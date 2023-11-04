@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Contains filter_datum function."""
 import re
+from typing import List
 
 
-def filter_datum(fields: list, redaction: str,
+def filter_datum(fields: List, redaction: str,
                  message: str, separator: str) -> str:
     """
     Args:
