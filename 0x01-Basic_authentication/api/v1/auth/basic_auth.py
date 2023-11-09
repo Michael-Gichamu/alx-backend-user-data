@@ -45,11 +45,9 @@ class BasicAuth(Auth):
             if type(decoded_base64_authorization_header) == str:
                 pattern = r':'
                 if re.search(pattern, decoded_base64_authorization_header):
-                    user = decoded_base64_authorization_header.split(':')
+                    user = decoded_base64_authorization_header.split(':', 1)
                     user_email = user[0]
                     user_password = user[1]
-                    if len(user) == 3:
-                        user_password += user[2]
                     return (user_email, user_password)
         return (None, None)
 
