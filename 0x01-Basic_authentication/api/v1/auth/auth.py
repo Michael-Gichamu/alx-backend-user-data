@@ -2,7 +2,7 @@
 """Template for all authentication system"""
 from typing import List, TypeVar
 from flask import Flask, request
-
+import fnmatch
 
 class Auth():
     """
@@ -18,7 +18,7 @@ class Auth():
         normalized_path = path if path.endswith('/') else path + '/'
 
         for excluded_path in excluded_paths:
-            if normalized_path == excluded_path:
+            if fnmatch.fnmatch(path, excluded_path):
                 return False
 
         return True
