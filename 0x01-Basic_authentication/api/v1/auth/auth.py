@@ -4,6 +4,7 @@ from typing import List, TypeVar
 from flask import Flask, request
 import fnmatch
 
+
 class Auth():
     """
     Authentication class.
