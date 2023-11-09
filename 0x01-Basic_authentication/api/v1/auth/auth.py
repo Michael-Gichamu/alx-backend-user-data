@@ -19,7 +19,7 @@ class Auth():
         normalized_path = path if path.endswith('/') else path + '/'
 
         for excluded_path in excluded_paths:
-            if fnmatch.fnmatch(path, excluded_path):
+            if fnmatch.fnmatch(normalized_path, excluded_path):
                 return False
 
         return True
