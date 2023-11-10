@@ -51,7 +51,8 @@ class SessionAuth(Auth):
             User instance
         """
         session_cookie = self.session_cookie(request)
-        user_id = self.user_id_for_session_id(session_cookie)
+        if session_cookie:
+            user_id = self.user_id_for_session_id(session_cookie)
         if user_id:
             user = User.get(user_id)
             return user
