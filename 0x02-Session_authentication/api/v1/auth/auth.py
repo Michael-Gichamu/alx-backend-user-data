@@ -2,6 +2,7 @@
 """Template for all authentication system"""
 from typing import List, TypeVar
 from flask import Flask, request
+import os
 import fnmatch
 
 
@@ -37,3 +38,16 @@ class Auth():
         Method to get user from request.
         """
         return None
+
+    def session_cookie(self, request=None):
+        """
+        Returns a cookie from a request
+        Args:
+            request : request object
+        Return:
+            value of _my_session_id cookie from request object
+        """
+        if request is None:
+            return None
+        session_name = os.getenv('SESSION_NAME')
+        return request.cookies.get(session_name)
